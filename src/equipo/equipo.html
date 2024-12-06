@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reparto Puntos PremierLeague</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="equipo.css">
+    <!-- fuente bebas neue -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <!-- D3 -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="equipo.js" defer></script>
+    <script src="/ui/radarChart.js" defer></script>
+
+</head>
+<body>
+        <div class="header">
+            <h1>Clasificaciones premier league</h1>
+            <h4>PABLO MARTÍN DE BENITO</h4>
+        </div>
+    
+        <div class="content">
+            <div class="sideNav">
+                <h3>Menu</h4>
+                <button class="navButton">Clasificacion</button>
+                <button class="navButton">Equipo</button>
+            </div>
+            <div class="mainContent">
+                <div class="subHeader">
+                    <h2 id="subHeaderTitle">stats Equipo</h2>
+                    <div class="inputs">
+                        <label for="seasonInput">Temporada (Año de fin)</label>
+                        <input type="text" id="seasonInput" name="season" value="2024" oninput="onChangeSeason()">
+                    </div>
+                    <div class="inputs">
+                        <label for="teamSelect">Equipo</label>
+                        <select id="teamSelect" name="team" >
+                        </select>
+                    </div>
+                </div>
+                <div id="graphContainer">
+                    <h2 id="teamTitle"></h2>
+                    <div id="graph2">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+</body>
+</html>

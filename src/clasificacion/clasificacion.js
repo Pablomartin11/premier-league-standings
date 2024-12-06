@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var selectedSeason = 2024;
 
-    d3.csv("data/premier-tables.csv").then(function(data){
+    d3.csv("/data/premier-tables.csv").then(function(data){
         data.forEach(function(d) {
             d.points = +d.points;
         });
@@ -41,8 +41,8 @@ document.addEventListener('DOMContentLoaded', function() {
             .call(yAxis)
             .selectAll("text")
             .style("text-anchor", "end")  
-            .style("font-size", "30px")
-            .style("font-family", "PremierSans")
+            .style("font-size", "20px")
+            .style("font-family", "aptos")
             .attr("dx", "-.5em")
             
         svg.selectAll(".bar")

@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    height: 100vh;
+    height: 1000px;
     display: flex;
     flex-direction: column;
 }
@@ -14,8 +14,8 @@ body {
 
   @font-face {
     font-family: 'PremierSans';
-    src: url('fonts/Premier Sans.otf') format('opentype'),
-         url('fonts/Premier Sans.ttf') format('truetype');
+    src: url('/fonts/Premier Sans.otf') format('opentype'),
+         url('/fonts/Premier Sans.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -30,10 +30,10 @@ body {
 
 h1 {
     color: white;
-    font-size: 100px;
+    font-size: 80px;
     margin-bottom: 10px;
     margin-top: 0;
-    padding-top: 20px;
+    padding-top: 30px;
 }
 
 h4 {
@@ -46,7 +46,7 @@ h4 {
 h3 {
     font-family: "Bebas Neue";
     color: #00FF85;
-    font-size: 50px;
+    font-size: 40px;
     margin-top: 20px;
     margin-bottom: 10px;
     padding-left: 30px;
@@ -60,7 +60,7 @@ h3 {
     background-color: #38003C;
     padding-top: 30px;
     padding-bottom: 30px;
-    width: 300px;
+    width: 200px;
     height: 100%;
 }
 
@@ -83,7 +83,7 @@ h3 {
 }
 .content {
     display: flex;
-    height: 100%;
+    height: 90%;
     margin-top: 0;
 }
 
@@ -102,35 +102,34 @@ h3 {
 .headerTable {
     background-color: #38003C;
     color: white;
-    font-size: 40px;
+    font-size: 30px;
     text-align: justify;
     display: flex;
     justify-content: space-between;
-    margin-top: 40px;
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-top: 25px;
+    margin-left: 200px;
+    margin-right: 200px;
     border-radius: 30px;
 }
 
 
 #tableTitle{
     margin-left: 100px;
-    padding-top: 10px;
-    font-family: "Bebas Neue";
-    font-size: 50px;
+    font-family: "PremierSans";
+    font-size: 40px;
 }
 
 #season {
     margin-right: 50px;
-    margin-top: 50px;
+    margin-top: 40px;
     font-family: "PremierSans", Arial, Helvetica Neue, Helvetica, sans-serif;
-    font-size: 60px;
+    font-size: 35px;
 }
 
 #seasonNumber {
-    margin-top: 40px;
+    margin-top: 30px;
     margin-right: 100px;
-    font-size: 80px;
+    font-size: 50px;
     font-family: "PremierSans", Arial, Helvetica Neue, Helvetica, sans-serif;
 }
 
@@ -143,6 +142,7 @@ h3 {
     justify-content: center;
     align-items: flex-start;
     height: 100%;
+    
 }
 
 
