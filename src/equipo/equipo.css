@@ -14,8 +14,8 @@ body {
 
   @font-face {
     font-family: 'PremierSans';
-    src: url('fonts/Premier Sans.otf') format('opentype'),
-         url('fonts/Premier Sans.ttf') format('truetype');
+    src: url('/fonts/Premier Sans.otf') format('opentype'),
+         url('/fonts/Premier Sans.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
