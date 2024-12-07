@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     var margin = {top: 70, right: 20, bottom: 30, left: 200},
-        w = 800 - margin.left - margin.right,
-        h = 800 - margin.top - margin.bottom;
+        w = 600 - margin.left - margin.right,
+        h = 600 - margin.top - margin.bottom;
 
     
 
@@ -39,26 +39,35 @@ document.addEventListener('DOMContentLoaded', function() {
     // Manejador para evento de cambio de equipo del select
     function onChangeTeam() {
         document.getElementById("teamTitle").textContent = document.getElementById("teamSelect").value;
+        var selectedSeason = document.getElementById("seasonInput").value;
+        var selectedTeam = document.getElementById("teamSelect").value;
 
+        fetchData().then(function(data) {
+            var filteredData = data.filter(function(d) {
+                return d.season_end_year == selectedSeason && d.team == selectedTeam;
+            });        
+        console.log(filteredData);
         var data = [
             [
-                {axis: "strength", value: 80}, 
-                {axis: "intelligence", value: 6}, 
-                {axis: "charisma", value: 5},  
-                {axis: "dexterity", value: 9},  
-                {axis: "luck", value: 2}
+                {"area": "won", "value": filteredData[0].won}, 
+                {"area": "drawn", "value": filteredData[0].drawn}, 
+                {"area": "gf", "value": filteredData[0].gf},  
+                {"area": "ga", "value": filteredData[0].ga},  
+                {"area": "gf", "value": filteredData[0].gf},
+                {"area": "points", "value": filteredData[0].points}
             ]
         ];
     
         var config = {
-            w: w,
-            h: h,
-            maxValue: 100,
+            w: 500,
+            h: 500,
+            maxValue: filteredData[0].maxValue,
             levels: 5,
-            ExtraWidthX: 300
+            ExtraWidthX: 200
         }
     
         RadarChart.draw("#graph2", data, config);
+    });
     }
     
     // Inicializa la página con los datos por defecto
@@ -71,5 +80,25 @@ document.addEventListener('DOMContentLoaded', function() {
     // Eventos
     document.getElementById("seasonInput").addEventListener('input', onChangeSeason);
     document.getElementById("teamSelect").addEventListener('input', onChangeTeam);
+
+    // Función para obtener los datos del equipo seleccionado
+    function fetchData() {
+        return d3.csv("/data/premier-tables.csv").then(function(data) {
+            data.forEach(function(d) {
+                d.won = +d.won;
+                d.drawn = +d.drawn;
+                d.gf = +d.gf;
+                d.ga = +d.ga;
+                d.points = +d.points;
+            });
+            return data;
+        });
+    }
+
 });
+
+
+
+
+
 
