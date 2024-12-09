@@ -1,7 +1,7 @@
 var RadarChart = {
     draw: function(id, d, options){
       var cfg = {
-       radius: 5,
+       radius: 8,
        w: 300,
        h: 300,
        factor: 1,
@@ -173,13 +173,15 @@ var RadarChart = {
         .style("fill", "#fff")
         .style("stroke-width", "2px")
         .style("stroke", cfg.color(series)).style("fill-opacity", .9)
-        .on('mouseover', function (d){
+        .on('mouseover', function (event,d){
+          console.log(d);
           console.log(d.area)
               tooltip
-                .style("left", d3.event.pageX - 40 + "px")
-                .style("top", d3.event.pageY - 80 + "px")
+                .style("left", event.pageX - 40 + "px")
+                .style("top", event.pageY - 80 + "px")
+                .style("font-family", "aptos")
                 .style("display", "inline-block")
-                        .html((d.area) + "<br><span>" + (d.value) + "</span>");
+                        .html((d.area) + "<br><b>" + (d.value) + "</b>");
               })
               .on("mouseout", function(d){ tooltip.style("display", "none");});
   

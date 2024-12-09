@@ -24,7 +24,7 @@
             <div class="sideNav">
                 <h3>Menu</h4>
                 <button class="navButton">Clasificacion</button>
-                <button class="navButton">Equipo</button>
+                <button class="navButton" onclick="window.location.href='/src/equipo/equipo.html'">Equipo</button>
             </div>
             <div class="mainContent">
                 <div class="table">
@@ -32,10 +32,17 @@
                         <h2 id="tableTitle">Tabla</h2>
                         <div class="seasonInfo">
                             <label id="season">temporada</label>
-                            <label id="seasonNumber"">2023/24</label>   
+                            <label id="seasonNumber"">2023/2024</label>   
                         </div>
                     </div>
-                    <div id="graph"></div>
+                    <div id="graphContainer">
+                        <div id="graph"></div>
+                        <div class="sliderContainer">
+                            <label id="seasonLabel" for="verticalSlider">Temporada:</label>
+                            <input type="range" min="1993" max="2024" value="2024" class="slider" id="verticalSlider" orient="vertical" onchange="onChangeSeason()">
+                        </div>
+                        
+                    </div>
                 </div>
             </div>
         </div>
