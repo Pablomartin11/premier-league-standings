@@ -26,7 +26,8 @@ var RadarChart = {
         }
       }
       
-      cfg.maxValue = 110;
+      // Función para obtener los maximos en todas las columnas que serán ejes
+      calculateMaxValue().then(function(maxValue) {
       
       var allAxis = (d[0].map(function(i, j){return i.area}));
       var total = allAxis.length;
@@ -111,8 +112,8 @@ var RadarChart = {
         g.selectAll(".nodes")
         .data(y, function(j, i){
           dataValues.push([
-          cfg.w/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.sin(i*cfg.radians/total)), 
-          cfg.h/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.cos(i*cfg.radians/total))
+          cfg.w/2*(1-(parseFloat(Math.max(j.value, 0))/maxValue[i])*cfg.factor*Math.sin(i*cfg.radians/total)), 
+          cfg.h/2*(1-(parseFloat(Math.max(j.value, 0))/maxValue[i])*cfg.factor*Math.cos(i*cfg.radians/total))
           ]);
         });
         dataValues.push(dataValues[0]);
@@ -161,13 +162,13 @@ var RadarChart = {
         .attr("alt", function(j){return Math.max(j.value, 0)})
         .attr("cx", function(j, i){
           dataValues.push([
-          cfg.w/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.sin(i*cfg.radians/total)), 
-          cfg.h/2*(1-(parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor*Math.cos(i*cfg.radians/total))
+          cfg.w/2*(1-(parseFloat(Math.max(j.value, 0))/maxValue[i])*cfg.factor*Math.sin(i*cfg.radians/total)), 
+          cfg.h/2*(1-(parseFloat(Math.max(j.value, 0))/maxValue[i])*cfg.factor*Math.cos(i*cfg.radians/total))
         ]);
-        return cfg.w/2*(1-(Math.max(j.value, 0)/cfg.maxValue)*cfg.factor*Math.sin(i*cfg.radians/total));
+        return cfg.w/2*(1-(Math.max(j.value, 0)/maxValue[i])*cfg.factor*Math.sin(i*cfg.radians/total));
         })
         .attr("cy", function(j, i){
-          return cfg.h/2*(1-(Math.max(j.value, 0)/cfg.maxValue)*cfg.factor*Math.cos(i*cfg.radians/total));
+          return cfg.h/2*(1-(Math.max(j.value, 0)/maxValue[i])*cfg.factor*Math.cos(i*cfg.radians/total));
         })
         .attr("data-id", function(j){return j.area})
         .style("fill", "#fff")
@@ -187,5 +188,28 @@ var RadarChart = {
   
         series++;
       });
+    });
       }
   };
+
+  function calculateMaxValue() {
+    return d3.csv("/data/premier-tables.csv").then(function(data) {
+        var maxValues = {
+            won: 0,
+            drawn: 0,
+            gf: 0,
+            ga: 0,
+            points: 0
+        };
+
+        data.forEach(function(row) {
+            maxValues.won = Math.max(maxValues.won, +row.won);
+            maxValues.drawn = Math.max(maxValues.drawn, +row.drawn);
+            maxValues.gf = Math.max(maxValues.gf, +row.gf);
+            maxValues.ga = Math.max(maxValues.ga, +row.ga);
+            maxValues.points = Math.max(maxValues.points, +row.points);
+        });
+
+        return [maxValues.won, maxValues.drawn, maxValues.gf, maxValues.ga, maxValues.points];
+    });
+}

@@ -82,11 +82,25 @@ document.addEventListener('DOMContentLoaded', function() {
                 .attr("y", function(d) {return y(d.team); })
                 .attr("width", function(d) { return x(d.points); })
                 .attr("height", y.bandwidth())
+                .attr("fill", function(d){
+                    if (d.notes.includes("Champions")){
+                        return "#3562A6";
+                    } else if (d.notes == "Relegated"){ 
+                        return "red";
+                    } else if(d.notes.includes("Europa Conference")){
+                        return "#00be14";
+                    } 
+                    else if(d.notes.includes("Europa League")){
+                        return "#fd7000";
+                    } else {
+                        return "#00FF85";
+                    }
+                })
                 .on("mouseover", function(event, d) {
                     tooltip.transition()
                         .duration(200)
-                        .style("opacity", .9);
-                    tooltip.html(d.team + "<br/>" + d.points + " puntos")
+                        .style("opacity", 1);
+                    tooltip.html(d.team + "<br/>" + d.points + " puntos" + "<br/><b>" + d.notes + "</b>")
                         .style("left", (event.pageX + 5) + "px")
                         .style("top", (event.pageY - 28) + "px");
                 })

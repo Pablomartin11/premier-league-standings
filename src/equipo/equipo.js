@@ -53,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 {"area": "drawn", "value": filteredData[0].drawn}, 
                 {"area": "gf", "value": filteredData[0].gf},  
                 {"area": "ga", "value": filteredData[0].ga},  
-                {"area": "gf", "value": filteredData[0].gf},
                 {"area": "points", "value": filteredData[0].points}
             ]
         ];
@@ -62,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
             w: 500,
             h: 500,
             maxValue: filteredData[0].maxValue,
-            levels: 5,
+            levels: 4,
             ExtraWidthX: 200
         }
     

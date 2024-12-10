@@ -152,12 +152,9 @@ svg {
 
 
 
-.bar {
-    fill: #00FF85;
-}
 
 .bar:hover {
-    fill: red;
+    opacity: 0.6;
 }
 
 
