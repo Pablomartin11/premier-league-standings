@@ -248,6 +248,21 @@ option {
     
 }
 
+#infoGraph {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 30px;
+    width: 70%; /* Ajusta el ancho según sea necesario */
+    
+}
+
+#teamLogo {
+    margin-left: 100px;
+}
+
 #graph2 {
     display: flex;
     justify-content: center;

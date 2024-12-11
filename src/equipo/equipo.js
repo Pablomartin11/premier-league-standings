@@ -66,6 +66,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     
         RadarChart.draw("#graph2", data, config);
+
+        // Actualizo el logo del equipo
+        var teamTitle = filteredData[0].team;
+        console.log(teamTitle);
+        var logoPath = "/public/" + teamTitle + ".png"; // Adjust the path as needed
+        document.getElementById("teamLogo").src = logoPath;
     });
     }
     
