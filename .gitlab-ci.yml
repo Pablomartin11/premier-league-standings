@@ -7,6 +7,5 @@ pages:
   artifacts:
     paths:
     - public/.public/src/clasificacion
-    - public/.public/src/equipo
   only:
   - main
