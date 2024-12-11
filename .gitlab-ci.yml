@@ -2,8 +2,8 @@ pages:
   stage: deploy
   script:
   - mkdir -p .public/clasificacion .public/equipo
-  - cp -r clasificacion/* .public/clasificacion
-  - cp -r equipo/* .public/equipo
+  - cp -r src/clasificacion/* .public/clasificacion
+  - cp -r src/equipo/* .public/equipo
   - mv .public public
   artifacts:
     paths:
