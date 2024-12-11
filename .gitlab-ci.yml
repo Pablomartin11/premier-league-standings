@@ -6,6 +6,6 @@ pages:
   - mv .public public
   artifacts:
     paths:
-    - public/.public/src/clasificacion
+    - public/.public/src/clasificacion/clasificacion.html
   only:
   - main
