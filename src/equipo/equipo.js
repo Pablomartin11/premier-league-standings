@@ -49,11 +49,11 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(filteredData);
         var data = [
             [
-                {"area": "won", "value": filteredData[0].won}, 
-                {"area": "drawn", "value": filteredData[0].drawn}, 
-                {"area": "gf", "value": filteredData[0].gf},  
-                {"area": "ga", "value": filteredData[0].ga},  
-                {"area": "points", "value": filteredData[0].points}
+                {"area": "Won", "value": filteredData[0].won}, 
+                {"area": "Drawn", "value": filteredData[0].drawn}, 
+                {"area": "Goals Forward", "value": filteredData[0].gf},  
+                {"area": "Goals Allowed", "value": filteredData[0].ga},  
+                {"area": "Points", "value": filteredData[0].points}
             ]
         ];
     

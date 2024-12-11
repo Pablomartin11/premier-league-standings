@@ -234,41 +234,39 @@ option {
     
     margin-left: 100px;
     margin-right: 100px;
+    
 }
 
 #teamTitle {
     font-family: "Bebas Neue";
     color: black;
-    font-size: 50px;
+    font-size: 70px;
     padding-right: 50px;
     
-    border-right: solid 3px grey;
-    margin-top: 60px;
     margin-left: 80px;
-    
+    margin-top: 60px;
 }
 
-#infoGraph {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 30px;
-    width: 70%; /* Ajusta el ancho según sea necesario */
-    
+.infoGraph {
+    display:flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 100%; 
+    width: 650px; 
+    border-right: solid 3px grey;
 }
 
 #teamLogo {
-    margin-left: 100px;
+    margin-top: 50px;
+    margin-left: 50px;
+    padding-right: 60px;
 }
 
 #graph2 {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    height: 100%;
-    width: 100%;
+    align-items: center;
+    margin: 0 auto;
 }
 
 
