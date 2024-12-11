@@ -6,6 +6,7 @@ pages:
   - mv .public public
   artifacts:
     paths:
-    - public
+    - public/.public/src/clasificacion
+    - public/.public/src/equipo
   only:
   - main
