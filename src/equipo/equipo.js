@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (selectedSeason < 1993 || selectedSeason > 2024) {
             errorMessage.style.display = "block";
-            return; // Salir de la función si hay un error
         } else {
             errorMessage.style.display = "none";
         }
