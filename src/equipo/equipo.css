@@ -311,3 +311,13 @@ option {
 #svg{
     margin-left: 100px;
 }
+
+#bottom{
+    margin-top: 80px;
+    width: 100%;
+    text-align: center;
+    height: 50px;
+    font-size: 15px;
+    padding-bottom: 40px;
+    font-family: "aptos";
+}
