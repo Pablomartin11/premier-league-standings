@@ -41,6 +41,15 @@ var RadarChart = {
         .append("g")
         .attr("transform", "translate(" + cfg.TranslateX + "," + cfg.TranslateY + ")");
 
+        g.append("text")
+        .attr("x", (cfg.w / 2))             
+        .attr("y", -cfg.TranslateY / 2-30)
+        .attr("text-anchor", "middle")  
+        .style("font-size", "16px")
+        .style("font-family", "aptos") 
+        .style("font-weight", "bold")
+        .text("Rendimiento en temporada");
+
 		var tooltip;
       
       //Circular segments

@@ -11,6 +11,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Actualiza el select de equipos
     function onChangeSeason() {
         var selectedSeason = document.getElementById("seasonInput").value;
+        var errorMessage = document.getElementById("error-message");
+
+        if (selectedSeason < 1993 || selectedSeason > 2024) {
+            errorMessage.style.display = "block";
+            return; // Salir de la función si hay un error
+        } else {
+            errorMessage.style.display = "none";
+        }
 
         d3.csv("/data/premier-tables.csv").then(function(data) {
             data.forEach(function(d) {
@@ -58,8 +66,8 @@ document.addEventListener('DOMContentLoaded', function() {
         ];
     
         var config = {
-            w: 500,
-            h: 500,
+            w: 450,
+            h: 450,
             maxValue: filteredData[0].maxValue,
             levels: 4,
             ExtraWidthX: 200

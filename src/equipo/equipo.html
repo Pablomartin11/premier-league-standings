@@ -34,7 +34,8 @@
                     <h2 id="subHeaderTitle">stats Equipo</h2>
                     <div class="inputs">
                         <label for="seasonInput">Temporada (Año de fin)</label>
-                        <input type="text" id="seasonInput" name="season" value="2024" oninput="onChangeSeason()">
+                        <input type="number" id="seasonInput" name="season" value="2024"  min="1993" max="2024" oninput="onChangeSeason()">
+                        <div id="error-message" style="color: red; display: none; margin-top: 100px; position: absolute; font-family: aptos";">La temporada debe ser mayor o igual a 1993.</div>
                     </div>
                     <div class="inputs">
                         <label for="teamSelect">Equipo</label>
